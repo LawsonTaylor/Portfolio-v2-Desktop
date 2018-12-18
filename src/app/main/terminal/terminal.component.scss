@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
+
+.terminal-container {
+  height: 400px;
+  width: 40vw;
+  left: calc(50% - 10vw);
+  top: calc(50% - 200px);
+}
+
+.terminal {
+    background: #fff;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+  }
+  
+
+.terminalBox {
+  display: flex;
+}
+
+.terminalInput {
+  border: none;
+  height: 50%;
+  width: 90%;
+  resize: none;
+  font: 14px 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  margin: 0;
+
+}
+
+.termText {
+  margin: 0;
+  padding-right: 4px;
+}

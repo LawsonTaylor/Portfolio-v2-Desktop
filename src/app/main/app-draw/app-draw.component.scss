@@ -1,0 +1,23 @@
+.appLauncher {
+
+    height: 60px;
+    min-width: 360px;
+    max-width: 720px;
+    background-color: rgba(248, 252, 232, 0.3);
+    border-radius: 4px;
+    position: absolute;
+    bottom: 4px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .appLauncherContainer{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .appIcon {
+    height: 50px;
+    padding-top: 5px;
+  }

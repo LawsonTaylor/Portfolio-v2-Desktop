@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+    --main-bg-color: #2F343F;
+    --main-txt-color: #7E8792;
+    --exit-color: #D41919;
+    --min-color: #ff6600;
+    --max-color: #357AF0;
+  }
+
+body {
+    background: url(https://i.gifer.com/WuBj.gif) no-repeat center center fixed;
+    background-size: auto auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
