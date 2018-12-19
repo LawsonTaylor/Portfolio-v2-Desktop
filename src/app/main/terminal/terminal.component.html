@@ -1,8 +1,11 @@
-<div cdkDrag class="terminal-container">
-  <app-terminal-header></app-terminal-header>
-  <div class="terminal">
-    <p class="termText">user@</p>
-    <p class="termText">localhost</p>
-    <textarea row="1" class="terminalInput"></textarea>
-  </div>
+<div cdkDragBoundary=".desktop" cdkDrag class="terminal-container" (click)='onClickTerminal()'>
+  <app-terminal-header cdkDragHandle></app-terminal-header>
+  <div #terminal class="terminal">
+    <div #outputContainer id="container"> </div>
+    <div id="input-line" class="input-line">
+        <p class="termText prompt">{{user}}</p>
+        <input #cmdLine class="cmdline " autofocus (keydown)="inputKeydown($event)"/>
+    </div>
+    
+</div>
 </div>

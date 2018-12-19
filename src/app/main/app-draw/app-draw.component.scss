@@ -21,3 +21,83 @@
     height: 50px;
     padding-top: 5px;
   }
+
+  .appIconBtn {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+    transition: 0.6s;
+    background: none;
+    border: none;
+
+    &:hover {
+      background-color: rgba(248, 252, 232, 0.4);
+    }
+  }
+
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 52px;
+    transition: all 0.4s ease-in;
+  }
+  button span[class^='ion'] {
+    position: relative;
+  }
+  button:before {
+    content: '';
+    background-color: rgba(248, 252, 232, 1);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: scale(0.001, 0.001);
+            transform: scale(0.001, 0.001);
+  }
+  button:focus {
+    outline: 0;
+    color: rgba(248, 252, 232, 1);
+  }
+  button:focus:before {
+    -webkit-animation: effect_dylan 0.8s ease-out;
+            animation: effect_dylan 0.8s ease-out;
+  }
+  @-webkit-keyframes effect_dylan {
+    50% {
+      -webkit-transform: scale(1.5, 1.5);
+              transform: scale(1.5, 1.5);
+      opacity: 0;
+    }
+    99% {
+      -webkit-transform: scale(0.001, 0.001);
+              transform: scale(0.001, 0.001);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(0.001, 0.001);
+              transform: scale(0.001, 0.001);
+      opacity: 1;
+    }
+  }
+  @keyframes effect_dylan {
+    50% {
+      -webkit-transform: scale(1.5, 1.5);
+              transform: scale(1.5, 1.5);
+      opacity: 0;
+    }
+    99% {
+      -webkit-transform: scale(0.001, 0.001);
+              transform: scale(0.001, 0.001);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(0.001, 0.001);
+              transform: scale(0.001, 0.001);
+      opacity: 1;
+    }
+  }

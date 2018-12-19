@@ -1,8 +1,8 @@
-
   .headerBar {
+    position: relative;
     height: 50px;
     background-color: var(--main-bg-color);
-    border-radius:  4px 4px 0 0;
+    border-radius: 6px 6px 0 0;
     display: inline-flex;
     width: 100%;
   }
@@ -18,7 +18,7 @@
    position: absolute;
    right: calc((100% / 2) - 60px);
    color: var(--main-txt-color);
-   padding-top: 4px;
+   padding-top: 7px;
    font-style: oblique;
   }
   
@@ -31,7 +31,26 @@
     padding-right: 8px;
     padding-top: 8px;
   }
-  
+
+  button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    appearance: none;
+    font-smoothing: antialiased;
+  }
+
+  button,
+  input[type='checkbox'] {
+    outline: none;
+  }
+
   .termExitBtn {
     border-radius: 50%;
     height: 14px;

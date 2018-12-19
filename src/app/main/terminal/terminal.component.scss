@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
 
+.desktop {
+  width: 100vw;
+  height: 100vh;
+}
+
 .terminal-container {
   height: 400px;
-  width: 40vw;
-  left: calc(50% - 10vw);
-  top: calc(50% - 200px);
+  min-width: 360px;
+  left: calc(50% - 300px);
+  top: 20vh;
+  position: relative;
+  max-width: 600px;
 }
 
 .terminal {
     background: #fff;
     position: relative;
-    border-radius: 4px 4px 0 0;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
     width: 100%;
     height: 100%;
+    top: -4px;
+    overflow-x: auto;
   }
   
 
@@ -26,7 +34,7 @@
   height: 50%;
   width: 90%;
   resize: none;
-  font: 14px 'IBM Plex Mono', monospace;
+
   font-weight: 500;
   margin: 0;
 
@@ -35,4 +43,75 @@
 .termText {
   margin: 0;
   padding-right: 4px;
+}
+
+.line {
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  width: 100%;
+  font: inherit;
+  border: none;
+  color: inherit;
+}
+
+// -------------------------
+#container {
+  padding: .5em 1em .1em .6em;
+}
+#container output {
+  clear: both;
+  width: 100%;
+}
+#container output h3 {
+  margin: 0;
+}
+#container output pre {
+  margin: 0;
+}
+.input-line {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  clear: both;
+  padding: .5em 1em .1em .6em;
+}
+.input-line > div:nth-child(2) {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+.prompt {
+  white-space: nowrap;
+  color: #96b38a;
+  margin-right: 7px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-orient: vertical;
+  display: box;
+  box-pack: center;
+  box-orient: vertical;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font: 14px 'IBM Plex Mono', monospace;
+}
+.cmdline {
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  width: 100%;
+  font: inherit;
+  border: none;
+  color: inherit;
+  font: 14px 'IBM Plex Mono', monospace;
 }

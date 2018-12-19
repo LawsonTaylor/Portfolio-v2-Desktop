@@ -6,6 +6,7 @@
     --exit-color: #D41919;
     --min-color: #ff6600;
     --max-color: #357AF0;
+    --button-colour: rgba(248, 252, 232, 1);
   }
 
 body {
@@ -15,4 +16,38 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: hidden;
 }
+
+/// for terminal component
+.line {
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    font: inherit;
+    border: none;
+    color: inherit;
+    font: 14px 'IBM Plex Mono', monospace;
+  }
+
+  p {
+    margin: 0px;
+    margin-top: 6px;
+    font: 14px 'IBM Plex Mono', monospace;
+  }
+  
+  pre {
+    margin: 0px;
+    margin-top: 6px;
+  }
+
+  .ls-files {
+    font: 14px 'IBM Plex Mono', monospace;  
+    height: 45px;
+    -webkit-column-width: 100px;
+    -moz-column-width: 100px;
+    -o-column-width: 100px;
+    column-width: 100px;
+  }
+  
