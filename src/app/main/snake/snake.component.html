@@ -1,15 +1,15 @@
-<div class="snake-game">
-<div class="headerBar">
-    <div class="userText">guest@lawson.io:~</div>
+<div cdkDragBoundary=".desktop" cdkDrag class="snake-game">
+<div class="headerBar" cdkDragHandle>
+    <div class="menu">SCORE: <span id="score">{{score}}</span></div>
     <div class="btnBar">
       <button class="termMinBtn"></button>
       <button class="termMaxBtn"></button>
-      <button class="termExitBtn" (click)="exitTerminal()"></button>
+      <button class="termExitBtn" (click)="close()"></button>
     </div>
     <div class="menuBar">
     </div>
     <div id="snake">
     <canvas #myCanvas id="xanvas" width="480" height="320"></canvas>
-    <div class="menu">SCORE: <span id="score"></span></div>
+    <button id="start-game" [class]="startButton" (click)="startGame()">PLAY</button>
     </div>
 </div>

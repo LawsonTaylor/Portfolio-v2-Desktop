@@ -23,4 +23,8 @@ export class AppDrawComponent implements OnInit {
     this.launcherService.toggleTerminal();
   }
 
+  launchSnake() {
+    this.launcherService.toggleSnake();
+  }
+
 }

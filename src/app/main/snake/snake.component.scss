@@ -2,8 +2,53 @@
   width: 480px;
   height: 370px;
   background-color: blanchedalmond;
+  border-radius: 8px 8px 0px 0px;
+  position: absolute;
+  top: 200px;
+  left: 20%;
+  z-index: 200;
 }
 
+#xanvas {
+  margin-top: 50px;
+}
+
+.menu {
+  position: absolute;
+  right: calc((100% / 2) - 30px);
+  color: var(--main-txt-color);
+  margin-top: 12px;
+  font-style: oblique;
+  font-family: ubuntu;
+}
+
+canvas {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+}
+
+#start-game {
+  padding: 10px 20px;
+  background-color: green;
+  position: absolute;
+  top: 160px;
+  width: 100px;
+  border: 0px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 24px;
+  left: calc(50% - 50px);
+}
+
+// button
+.inGame {
+  display: none;
+}
+
+.inline {
+  display: inline;
+}
 
 
 // HEADER

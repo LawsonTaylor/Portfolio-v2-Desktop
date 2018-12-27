@@ -15,12 +15,16 @@ export class DesktopComponent implements OnInit {
   public displayTerminal: boolean;
   private isTerminalDisplayed: Observable<boolean>;
 
+  public displaySnake: boolean;
+  private isSnakeDisplayed: Observable<boolean>;
+
   constructor(private launcherService: LauncherService) {
   }
 
   ngOnInit() {
     this.isResumeDisplayed = this.launcherService.getIsResume;
     this.isTerminalDisplayed = this.launcherService.getIsTerminal;
+    this.launcherService.getIsSnake.subscribe(isSnake => this.displaySnake = isSnake);
     this.isResumeDisplayed.subscribe(isDisplayed => this.displayresume = isDisplayed);
     this.isTerminalDisplayed.subscribe(isTerminal => this.displayTerminal = isTerminal);
   }
