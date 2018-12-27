@@ -1,5 +1,50 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 
+interface IDocument {
+  name: string;
+  html: string;
+  hidden: boolean;
+}
+
+
+const LAWSON_DETAILS = `
+    <table style="width:100%">
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height</th>
+      <th>Nationality</th>
+    </tr>
+    <tr>
+      <td>Lawson</td>
+      <td>Taylor</td>
+      <td>24</td>
+      <td>Blue</td>
+      <td>1.76m</td>
+      <td>Australian</td>
+    </tr>
+    </table>`;
+
+    const INFO = `
+&nbsp&nbsp&nbsp&nbsp&nbsp_________ </br>
+&nbsp&nbsp&nbsp&nbsp/ ======= \\ </br>
+&nbsp&nbsp&nbsp/ __________\\ </br>
+&nbsp&nbsp| ___________ |</br>
+&nbsp&nbsp| |&nbsp-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp| |</br>
+&nbsp&nbsp| |&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp| |</br>
+&nbsp&nbsp| |_________| |_______________________</br>
+&nbsp&nbsp\\=____________/&nbsp&nbsp&nbsp&nbsp&nbspLawson Taylor&nbsp&nbsp&nbsp&nbsp&nbsp)</br>
+&nbsp&nbsp/&nbsp""""""""""" \\&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp/</br>
+&nbsp/&nbsp::::::::::::: \\&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp=D-'</br>
+(_________________)</br>
+-------------------------------------------------------------------
+Welcome to my portfolio site. </br>
+I hope you enjoy my work. </br>
+Feel free to play around with the terminal or contact me at <a href="mailto:lawson.taylor@protonmail.com?Subject=Hello%20World" target="top">lawson.j.taylor@gmail.com</a>
+`;
+
 @Component({
   selector: 'app-terminal',
   templateUrl: './terminal.component.html',
@@ -17,11 +62,24 @@ export class TerminalComponent implements OnInit {
   private histtemp_: string;
   private value: string;
   private user: string;
+  private docs: Array<IDocument>;
 
   constructor(private hostElement: ElementRef) {
     this.history = [];
     this.histpos = 0;
     this.user = 'guest@lawsonOS:~$';
+    this.docs = [
+      {
+        name: '.test',
+        html: '<p>This is a hidden test document</p>',
+        hidden: true,
+      },
+      {
+        name: 'lawson-details',
+        html: LAWSON_DETAILS,
+        hidden: false,
+      }
+    ];
   }
 
   ngOnInit() {
@@ -80,7 +138,7 @@ export class TerminalComponent implements OnInit {
       }
 
       const CMDS_ = [
-        'cat', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami'
+        'cat', 'clear', 'echo', 'help', 'info', 'ls'
       ];
 
       // Duplicate current input and append to this.output section.
@@ -97,7 +155,7 @@ export class TerminalComponent implements OnInit {
       let args = [];
 
       if (this.value && this.value.trim()) {
-          args = this.value.split(' ').filter(function(val, i) {
+        args = this.value.split(' ').filter(function (val, i) {
           return val;
         });
         cmd = args[0].toLowerCase();
@@ -106,18 +164,14 @@ export class TerminalComponent implements OnInit {
 
       switch (cmd) {
         case 'cat':
-          const url = args.join(' ');
-            this.output('<pre>' + 'preformed CAT!' + '</pre>');
+          this.cat(args);
           break;
         case 'clear':
           this.output_.nativeElement.innerHTML = '';
           this.value = '';
           return;
-        case 'date':
-          this.output( new Date() );
-          break;
         case 'echo':
-          this.output( args.join(' ') );
+          this.output(args.join(' '));
           break;
         case 'help':
           this.output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
@@ -125,9 +179,12 @@ export class TerminalComponent implements OnInit {
         case 'uname':
           this.output(navigator.appVersion);
           break;
-        case 'whoami':
+        case 'info':
           const result = 'lawson';
-          this.output(result);
+          this.output(INFO);
+          break;
+        case 'ls':
+          this.list(args);
           break;
         default:
           if (cmd) {
@@ -135,11 +192,32 @@ export class TerminalComponent implements OnInit {
           }
       }
 
-      this.terminal_.nativeElement.scrollIntoView({behavior: 'instant', block: 'end', inline: 'nearest'});
+      this.terminal_.nativeElement.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
       this.value = ''; // Clear/setup line for next input.
     }
   }
 
+  list(args) {
+    const showHidden = args[0];
+    for (const doc of this.docs) {
+      if (doc.hidden) {
+        if (showHidden) {
+          this.output(doc.name);
+        }
+      } else {
+        this.output(doc.name);
+      }
+    }
+  }
+
+  cat(args) {
+    const fileName = args[0];
+    for (const doc of this.docs) {
+      if (doc.name === fileName) {
+        this.output(doc.html);
+      }
+    }
+  }
 
 
   output(html) {
