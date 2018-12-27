@@ -1,4 +1,6 @@
 <div class='desktop'>
-    <app-terminal></app-terminal>
+    <app-snake></app-snake>
+    <app-terminal *ngIf="displayTerminal"></app-terminal>
+    <app-resume *ngIf="displayresume"></app-resume>
     <app-app-draw></app-app-draw>
 </div>

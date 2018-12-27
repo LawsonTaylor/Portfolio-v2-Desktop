@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Simple Snake</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <img src="./tv.png" alt=""> -->
+    <button id="start-game">PLAY</button>
+    <canvas id="xanvas" width="480" height="320"></canvas>
+    <div class="menu">SCORE: <span id="score"></span></div>
+  </body>
+  <script>
+    var inGame = false;
+    var CANVAS_WIDTH = 480;
+    var CANVAS_HEIGHT = 320;
+    var canvas = document.getElementById("xanvas").getContext("2d");
+    var menuScore = document.getElementById("score");
+    var start = document.getElementById("start-game");
+    var speed = 14;
+
+    start.addEventListener("click", () => {
+      inGame = true;
+      start.style.display = "none";
+    })
+
+    document.addEventListener(
+      "keydown",
+      function(e) {
+        if (e) {
+          console.log(e.keyCode);
+          switch (e.keyCode) {
+            case 38:
+              snake.body[0].direction = "up";
+              break;
+            case 37:
+              snake.body[0].direction = "left";
+              break;
+            case 39:
+              snake.body[0].direction = "right";
+              break;
+            case 40:
+              snake.body[0].direction = "down";
+              break;
+            default:
+          }
+        }
+      },
+      false
+    );
+
+    // document.addEventListener('keyup', function(e) {
+    //     snake.direction = '';
+    // }, false);
+
+    let drawBody = (x, y, w, h, c) => {
+      canvas.fillStyle = c;
+      canvas.fillRect(x, y, w, h);
+    };
+
+    let addBody = tail => {
+      let nx = tail.x;
+      let ny = tail.y;
+      let d = tail.direction;
+      console.log("add body");
+
+      let ab = {
+        color: "#0FA",
+        x: nx,
+        y: ny,
+        direction: d,
+        width: 16,
+        height: 16,
+        move: (x, y) => {
+          this.x = x;
+          this.y = y;
+        }
+      };
+      return ab;
+    };
+
+    let snake = {
+      body: [],
+      head: () => {
+        return [snake.body[0].x, snake.body[0].y];
+      },
+      direction: "up",
+      draw: () => {
+        // for(let i = 0; i < snake.body.lenght; i++) {
+        //   this..body[i].draw();
+        // }
+        snake.body.forEach(b => drawBody(b.x, b.y, b.width, b.height, b.color));
+      },
+      move: direction => {
+        for (let i = snake.body.length - 1; i >= 0; i--) {
+          if (i == 0) {
+            switch (snake.body[0].direction) {
+              case "left":
+                snake.body[i].x -= 16;
+                break;
+              case "right":
+                snake.body[i].x += 16;
+                break;
+              case "up":
+                snake.body[i].y -= 16;
+                break;
+              case "down":
+                snake.body[i].y += 16;
+                break;
+            }
+          } else {
+            snake.body[i].x = snake.body[i - 1].x;
+            snake.body[i].y = snake.body[i - 1].y;
+          }
+        }
+      },
+      growSnake: () => {
+        let tail = snake.body[snake.body.length - 1];
+        snake.body.push(addBody(tail));
+      }
+    };
+
+    for (let b = 0; b < 4; b++) {
+      snake.body.push(addBody({ x: 200, y: 200 + b * 16, direction: "up" }));
+    }
+    console.log(snake.body);
+
+    let food = {
+      color: "red",
+      x: 150,
+      y: 150,
+      width: 12,
+      height: 12,
+      draw: function() {
+        canvas.fillStyle = this.color;
+        canvas.fillRect(this.x, this.y, this.width, this.height);
+      }
+    };
+
+    var textX = 50;
+    var textY = 50;
+
+    let score = 0;
+
+    function checkBounds() {
+      let head = snake.head();
+
+      if (head[1] >= 320) {
+        snake.body[0].y = 0;
+      }
+      if (head[1] <= 0) {
+        snake.body[0].y = CANVAS_HEIGHT;
+      }
+      if (head[0] <= 0) {
+        snake.body[0].x = CANVAS_WIDTH;
+      }
+      if (head[0] >= 480) {
+        snake.body[0].x = 0;
+      }
+    }
+
+    function isBitten() {
+      let head = snake.head();
+      for (let bo = 1; bo < snake.body.length; bo++) {
+        let x = snake.body[bo].x;
+        let y = snake.body[bo].y;
+        let bx = x - 10 < head[0] && head[0] < x + 10;
+        let by = y - 10 < head[1] && head[1] < y + 10;
+        if (bx && by) {
+          score = 0;
+          snake.body = [];
+          inGame = false;
+          start.style.display = "inline";
+          for (let b = 0; b < 4; b++) {
+            snake.body.push(
+              addBody({ x: 200, y: 200 + b * 16, direction: "up" })
+            );
+          }
+        }
+      }
+    }
+
+    function ifFood() {
+      let head = snake.head();
+      let x = head[0] + 16 > food.x && food.x > head[0] - 16;
+      let y = head[1] + 16 > food.y && food.y > head[1] - 16;
+      if (x && y) {
+        let fx = 16 + (420 - 32) * Math.random();
+        let fy = 16 + (320 - 32) * Math.random();
+        while(collide(head[0], head[1], fx, fy)) {
+          fx = 16 + (420 - 32) * Math.random();
+          fy = 16 + (320 - 32) * Math.random();
+        }
+        food.x = fx;
+        food.y = fy;
+        console.log("grew");
+        score += 1;
+        snake.growSnake();
+      }
+    }
+
+    function collide(sx, sy, fx, fy) {
+      return (sx - 16 < fx && fx < sx + 16) || (sy - 16 < fy && fy < sy + 16);
+    }
+
+    function update() {
+      checkBounds();
+      ifFood();
+      isBitten();
+      snake.move();
+    }
+
+    function draw() {
+      canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      canvas.fillStyle = "#000";
+      menuScore.innerHTML = score;
+      snake.draw();
+      food.draw();
+    }
+
+    var FPS = 30;
+    
+    setInterval(function() {
+      if(inGame){ 
+        update();
+        draw();
+      }
+    }, 1000 / speed);
+  </script>
+</html>

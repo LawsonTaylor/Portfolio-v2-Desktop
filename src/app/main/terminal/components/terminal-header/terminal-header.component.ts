@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LauncherService } from '../../../../shared/launcher.service';
 @Component({
   selector: 'app-terminal-header',
   templateUrl: './terminal-header.component.html',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TerminalHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private launcherService: LauncherService) { }
 
   ngOnInit() {
+  }
+
+  exitTerminal() {
+    this.launcherService.toggleTerminal();
   }
 
 }

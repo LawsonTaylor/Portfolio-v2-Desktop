@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
+import { LauncherService } from '../../shared/launcher.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-app-draw',
   templateUrl: './app-draw.component.html',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppDrawComponent implements OnInit {
 
-  constructor() { }
+  constructor(private launcherService: LauncherService) {
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  launchResume() {
+    this.launcherService.toggleResume();
+    console.log('clicked - launch resume!');
+  }
+
+  launchTerminal() {
+    this.launcherService.toggleTerminal();
   }
 
 }

@@ -1,0 +1,85 @@
+.snake-game {
+  width: 480px;
+  height: 370px;
+  background-color: blanchedalmond;
+}
+
+
+
+// HEADER
+.headerBar {
+    position: relative;
+    height: 50px;
+    background-color: var(--main-bg-color);
+    border-radius: 6px 6px 0 0;
+    display: inline-flex;
+    width: 100%;
+  }
+  
+  .menuBar {
+    position: relative;
+    top: 26px;
+    color: var(--main-txt-color);
+    display: flex;
+  }
+  
+  .userText {
+   position: absolute;
+   right: calc((100% / 2) - 60px);
+   color: var(--main-txt-color);
+   padding-top: 7px;
+   font-style: oblique;
+  }
+  
+  .btnBar {
+    display: flex;
+    position: absolute;
+    right: 0px;
+    justify-content: space-between;
+    width: 80px;
+    padding-right: 8px;
+    padding-top: 8px;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    appearance: none;
+    font-smoothing: antialiased;
+  }
+
+  button,
+  input[type='checkbox'] {
+    outline: none;
+  }
+
+  .termExitBtn {
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+  
+    background-color: var(--exit-color);
+  }
+  
+  .termMinBtn {
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    background-color: var(--min-color);
+  
+  }
+  
+  .termMaxBtn {
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    background-color: var(--max-color);
+  
+  }

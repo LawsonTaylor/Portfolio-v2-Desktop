@@ -9,6 +9,8 @@ import { AppDrawComponent } from './main/app-draw/app-draw.component';
 import { TerminalComponent } from './main/terminal/terminal.component';
 import { DesktopComponent } from './main/desktop/desktop.component';
 import { TerminalHeaderComponent } from './main/terminal/components/terminal-header/terminal-header.component';
+import { ResumeComponent } from './main/resume/resume.component';
+import { SnakeComponent } from './main/snake/snake.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TerminalHeaderComponent } from './main/terminal/components/terminal-hea
     AppDrawComponent,
     TerminalComponent,
     DesktopComponent,
-    TerminalHeaderComponent
+    TerminalHeaderComponent,
+    ResumeComponent,
+    SnakeComponent
   ],
   imports: [
     BrowserModule,
