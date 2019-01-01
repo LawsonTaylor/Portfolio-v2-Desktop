@@ -27,4 +27,8 @@ export class AppDrawComponent implements OnInit {
     this.launcherService.toggleSnake();
   }
 
+  launchMail() {
+    this.launcherService.toggleContact();
+  }
+
 }
