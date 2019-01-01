@@ -1,5 +1,5 @@
 <div cdkDragBoundary=".desktop" cdkDrag class="snake-game">
-  <app-terminal-header cdkDragHandle [closeFunction]="close"></app-terminal-header>
+  <app-terminal-header cdkDragHandle [closeFunction]="close" [titleText]='titleText'></app-terminal-header>
     <div id="snake">
       <canvas #myCanvas id="xanvas" width="480" height="320"></canvas>
       <div [class]="startButton">

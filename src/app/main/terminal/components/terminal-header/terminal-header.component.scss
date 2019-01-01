@@ -15,11 +15,14 @@
   }
   
   .userText {
-   position: absolute;
-   right: calc((100% / 2) - 60px);
-   color: var(--main-txt-color);
-   padding-top: 7px;
-   font-style: oblique;
+    position: absolute;
+    right: calc((100% / 2) - 50px);
+    color: var(--main-txt-color);
+    padding-top: 10px;
+    font-style: oblique;
+    font-family: ubuntu;
+    width: 100px;
+    text-align: center;
   }
   
   .btnBar {

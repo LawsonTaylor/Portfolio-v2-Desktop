@@ -1,21 +1,16 @@
 <div cdkDragBoundary=".desktop" cdkDrag class="contact-form">
 <app-terminal-header cdkDragHandle [closeFunction]="close"></app-terminal-header>
   <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
-      <input type = "text" class = "fortextbox" name="from" placeholder = "emailid" 
+      <input type = "text" class = "fortextbox" name="to" placeholder='To: Lawson Taylor <lawson.taylor@protonmail.com>' readonly
       formControlName = "emailid">
-      <input type = "text" class="fortextbox" name="to" placeholder="emailid" 
+      <input type = "text" class="fortextbox" name="from" placeholder="From: " 
       formControlName = "emailid">
-     <input type = "text" class="fortextbox" name="subject" placeholder="emailid" 
+     <input type = "text" class="fortextbox" name="subject" placeholder="Subject:" 
         formControlName = "emailid">
      <br/>
      <textarea rows=20 class="contact-textarea" name = "passwd" 
-        placeholder = "passwd" formControlName = "passwd"></textarea>
+        placeholder = "Write your message here...." formControlName = "passwd"></textarea>
      <br/>
-     <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" 
-        value = "Log In">
+      <button class='send-mail-button'><div class='mail-button-content'><span class='send-mail-text'>SEND MAIL</span><img class='send-mail-image' src='../../../assets/icons/mail-send.png'/></div></button>
   </form>
 </div>
-
-<p>
-  Email entered is : {{emailid}}
-</p>

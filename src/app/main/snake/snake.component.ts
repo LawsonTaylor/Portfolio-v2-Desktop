@@ -116,6 +116,7 @@ export class SnakeComponent implements OnInit {
   public food: Food;
   private inGame: boolean;
   public startButton: string;
+  public titleText: string;
 
   @ViewChild('myCanvas') myCanvas: ElementRef;
   public canvas: any;
@@ -132,6 +133,7 @@ export class SnakeComponent implements OnInit {
     this.inGame = false;
     this.startButton = 'inline';
     this.close = this.close.bind(this);
+    this.titleText = 'SCORE: 0';
   }
 
   ngOnInit() {
@@ -204,6 +206,7 @@ export class SnakeComponent implements OnInit {
       this.food.y = fy;
       console.log('grew');
       this.score += 1;
+      this.titleText = `SCORE: ${this.score}`;
       this.snake.growSnake();
     }
   }

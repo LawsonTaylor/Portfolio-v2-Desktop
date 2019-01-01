@@ -1,11 +1,54 @@
 .contact-form {
-    background-color: antiquewhite;
-    min-width: 360px;
-    max-width: 450px;
+    background-color: #fff;
+    min-width: 460px;
+    max-width: 550px;
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .contact-textarea {
-    width: calc(100% - 2px);
+    width: calc(100% - 24px);
     border: none;
     resize: none;
+    background-color: rgba(240, 240, 240, 1);
+    position: relative;
+    top: -1px;
+    padding: 12px;
+}
+
+form {
+    position: relative;
+    
+}
+
+input {
+    width: calc(100% - 24px);
+    border: none;
+    height: 24px;
+    padding: 2px 12px;
+}
+
+.send-mail-button {
+    width: 100%;
+    border: none;
+    background: #fff;
+    height: 40px;
+    position: relative;
+    top: -1px;
+}
+
+.mail-button-content {
+    display: flex;
+    justify-content: center;
+}
+
+.send-mail-image {
+    height: 30px;
+    margin-left: 20px;
+}
+
+.send-mail-text {
+    position: relative;
+    top: 7px;
+    font-size: 16px;
 }

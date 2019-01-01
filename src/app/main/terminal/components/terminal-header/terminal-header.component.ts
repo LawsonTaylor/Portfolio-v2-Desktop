@@ -9,6 +9,9 @@ export class TerminalHeaderComponent implements OnInit {
   @Input()
   closeFunction: Function;
 
+  @Input()
+  titleText: string;
+
   constructor() { }
 
   ngOnInit() {

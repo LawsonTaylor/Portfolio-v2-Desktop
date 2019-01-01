@@ -1,8 +1,8 @@
 .resume-popup {
     min-width: 360px;
-    max-width: 500px;
+    max-width: 960px;
     min-height: 500px;
-    max-height: 900px;
+    max-height: 1380px;
     border-radius: 4px;
     background-color: antiquewhite;
     padding: 20px;
@@ -16,6 +16,10 @@
     margin-top: 10px;
 }
 
+.skills {
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
 
 button {
     margin: 0;
@@ -44,3 +48,33 @@ button {
     right: 10px;
     background-color: var(--exit-color);
   }
+  
+  #Capa_1 {
+    fill: blue;
+    height: 30px;
+    float: right;
+    margin: 10px 20px;
+  }
+
+  .c0 {
+    padding-top: 6px;
+  }
+
+  .c2 {
+    font-family: serif;
+  }
+
+  .c14 {
+    font-size: 18px;
+  }
+
+  .c28 {
+    font-style: italic;
+  }
+
+  // HTML RESUME TABLE
+  .tg  {border-collapse:collapse; border-spacing:0; border: none !important; width: 100%;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding: 6px 5px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:16px;font-weight:normal;padding:10px 5px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+  .tg .tg-0lax{text-align:left;vertical-align:top}
