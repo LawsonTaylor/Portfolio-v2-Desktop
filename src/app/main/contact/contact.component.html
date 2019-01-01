@@ -1,0 +1,21 @@
+<div cdkDragBoundary=".desktop" cdkDrag class="contact-form">
+<app-terminal-header cdkDragHandle [closeFunction]="close"></app-terminal-header>
+  <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+      <input type = "text" class = "fortextbox" name="from" placeholder = "emailid" 
+      formControlName = "emailid">
+      <input type = "text" class="fortextbox" name="to" placeholder="emailid" 
+      formControlName = "emailid">
+     <input type = "text" class="fortextbox" name="subject" placeholder="emailid" 
+        formControlName = "emailid">
+     <br/>
+     <textarea rows=20 class="contact-textarea" name = "passwd" 
+        placeholder = "passwd" formControlName = "passwd"></textarea>
+     <br/>
+     <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" 
+        value = "Log In">
+  </form>
+</div>
+
+<p>
+  Email entered is : {{emailid}}
+</p>

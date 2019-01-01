@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-
+import { LauncherService } from '../../shared/launcher.service';
 interface IDocument {
   name: string;
   html: string;
@@ -64,7 +64,7 @@ export class TerminalComponent implements OnInit {
   private user: string;
   private docs: Array<IDocument>;
 
-  constructor(private hostElement: ElementRef) {
+  constructor(private hostElement: ElementRef, private launcherService: LauncherService) {
     this.history = [];
     this.histpos = 0;
     this.user = 'guest@lawsonOS:~$';
@@ -80,9 +80,14 @@ export class TerminalComponent implements OnInit {
         hidden: false,
       }
     ];
+    this.close = this.close.bind(this);
   }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.launcherService.toggleTerminal();
   }
 
   onClickTerminal() {
@@ -219,7 +224,6 @@ export class TerminalComponent implements OnInit {
     }
   }
 
-
   output(html) {
     this.output_.nativeElement.insertAdjacentHTML('beforeEnd', '<p>' + html + '</p>');
   }
@@ -228,9 +232,6 @@ export class TerminalComponent implements OnInit {
     this.historyHandler(e);
     this.processNewCommand(e);
   }
-
-
-
 
 }
 

@@ -7,10 +7,22 @@
   top: 200px;
   left: 20%;
   z-index: 200;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 #xanvas {
-  margin-top: 50px;
+  // margin-top: 50px;
+}
+
+.control-text {
+  margin: 0px;
+  margin-top: 0px;
+  margin-top: 6px;
+  font: 14px 'IBM Plex Mono', monospace;
+  top: 100px;
+  margin: auto;
+  position: absolute;
+  left: calc(50% - 125px);
 }
 
 .menu {
@@ -26,6 +38,8 @@ canvas {
   background: #eee;
   display: block;
   margin: 0 auto;
+  top: 50px;
+  position: absolute;
 }
 
 #start-game {
@@ -59,6 +73,7 @@ canvas {
     border-radius: 6px 6px 0 0;
     display: inline-flex;
     width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
   
   .menuBar {

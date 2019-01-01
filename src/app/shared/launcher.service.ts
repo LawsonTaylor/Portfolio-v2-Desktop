@@ -9,11 +9,13 @@ export class LauncherService {
   private isResume: BehaviorSubject<boolean>;
   private isTerminal: BehaviorSubject<boolean>;
   private isSnake: BehaviorSubject<boolean>;
+  private isContact: BehaviorSubject<boolean>;
 
   constructor() {
     this.isResume = new BehaviorSubject(false);
     this.isTerminal = new BehaviorSubject(true);
     this.isSnake = new BehaviorSubject(false);
+    this.isContact = new BehaviorSubject(false);
   }
 
   get getIsResume(): Observable<boolean> {
@@ -38,6 +40,14 @@ export class LauncherService {
 
   toggleSnake() {
     this.isSnake.next(!this.isSnake.value);
+  }
+
+  get getIsContact() {
+    return this.isContact.asObservable();
+  }
+
+  toggleContact() {
+    this.isContact.next(!this.isContact.value);
   }
 
 }

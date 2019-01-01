@@ -1,15 +1,10 @@
 <div cdkDragBoundary=".desktop" cdkDrag class="snake-game">
-<div class="headerBar" cdkDragHandle>
-    <div class="menu">SCORE: <span id="score">{{score}}</span></div>
-    <div class="btnBar">
-      <button class="termMinBtn"></button>
-      <button class="termMaxBtn"></button>
-      <button class="termExitBtn" (click)="close()"></button>
-    </div>
-    <div class="menuBar">
-    </div>
+  <app-terminal-header cdkDragHandle [closeFunction]="close"></app-terminal-header>
     <div id="snake">
-    <canvas #myCanvas id="xanvas" width="480" height="320"></canvas>
-    <button id="start-game" [class]="startButton" (click)="startGame()">PLAY</button>
+      <canvas #myCanvas id="xanvas" width="480" height="320"></canvas>
+      <div [class]="startButton">
+        <p class="control-text">Controls: up, down, left, right</p>
+        <button id="start-game" (click)="startGame()">PLAY</button>
+      </div>
     </div>
-</div>
+  </div>

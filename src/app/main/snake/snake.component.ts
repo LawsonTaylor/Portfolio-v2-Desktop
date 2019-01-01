@@ -131,6 +131,7 @@ export class SnakeComponent implements OnInit {
     this.food = new Food(150, 150);
     this.inGame = false;
     this.startButton = 'inline';
+    this.close = this.close.bind(this);
   }
 
   ngOnInit() {
@@ -217,10 +218,10 @@ export class SnakeComponent implements OnInit {
     if (head[1] >= 320) {
       this.snake.body[0].y = 0;
     }
-    if (head[1] <= 0) {
+    if (head[1] <= -16) {
       this.snake.body[0].y = CANVAS_HEIGHT;
     }
-    if (head[0] <= 0) {
+    if (head[0] <= -16) {
       this.snake.body[0].x = CANVAS_WIDTH;
     }
     if (head[0] >= 480) {

@@ -16,9 +16,11 @@ export class DesktopComponent implements OnInit {
   private isTerminalDisplayed: Observable<boolean>;
 
   public displaySnake: boolean;
-  private isSnakeDisplayed: Observable<boolean>;
+
+  public displayContact: boolean;
 
   constructor(private launcherService: LauncherService) {
+    this.displayContact = true;
   }
 
   ngOnInit() {
