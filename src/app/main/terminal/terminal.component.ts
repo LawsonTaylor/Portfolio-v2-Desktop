@@ -27,7 +27,7 @@ const LAWSON_DETAILS = `
     </tr>
     </table>`;
 
-    const INFO = `
+    const INFO = `<p>
 &nbsp&nbsp&nbsp&nbsp&nbsp_________ </br>
 &nbsp&nbsp&nbsp&nbsp/ ======= \\ </br>
 &nbsp&nbsp&nbsp/ __________\\ </br>
@@ -40,9 +40,12 @@ const LAWSON_DETAILS = `
 &nbsp/&nbsp::::::::::::: \\&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp=D-'</br>
 (_________________)</br>
 -------------------------------------------------------------------
-Welcome to my portfolio site. </br>
-I hope you enjoy my work. </br>
-Feel free to play around with the terminal or contact me at <a href="mailto:lawson.taylor@protonmail.com?Subject=Hello%20World" target="top">lawson.j.taylor@gmail.com</a>
+</p>
+<p class='info-text-terminal'>
+Welcome to my portfolio site. I hope you enjoy my work. </br>
+Feel free to play around with the terminal and other apps, </br> contact me at <a href="mailto:lawson.taylor@protonmail.com?Subject=Hello%20World" target="top">lawson.j.taylor@gmail.com</a>,
+or enter 'help' for more options.
+</p>
 `;
 
 @Component({
@@ -95,12 +98,10 @@ export class TerminalComponent implements OnInit {
   }
 
   inputTextClick(e) {
-    console.log('input text clicl');
     this.value = this.value;
   }
 
   historyHandler(e) {
-    console.log('history handler');
     if (this.history.length) {
       if (e.keyCode === 38 || e.keyCode === 40) {
         if (this.history[this.histpos]) {

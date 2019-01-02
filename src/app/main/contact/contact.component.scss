@@ -1,9 +1,19 @@
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+} 
+
 .contact-form {
     background-color: #fff;
     min-width: 460px;
     max-width: 550px;
     border-radius: 6px 6px 0px 0px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input:focus, div:focus {
+
 }
 
 .contact-textarea {
@@ -51,4 +61,18 @@ input {
     position: relative;
     top: 7px;
     font-size: 16px;
+}
+
+.errorMessage {
+    color: red;
+    padding: 4px 24px;
+    border: solid 1px;
+    margin: 6px;
+}
+
+.successMessage {
+    color: blue;
+    padding: 4px 24px;
+    border: solid 1px;
+    margin: 6px;
 }

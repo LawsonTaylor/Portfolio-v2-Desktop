@@ -15,15 +15,16 @@
 }
 
 .terminal {
-    background: #fff;
-    position: relative;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
-    top: -4px;
-    overflow-x: auto;
-  }
-  
+  background: rgba(25, 54, 37, 1);
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  top: -4px;
+  overflow-x: auto;
+  color: rgba(236, 248, 223, 1);
+
+}
 
 .terminalBox {
   display: flex;

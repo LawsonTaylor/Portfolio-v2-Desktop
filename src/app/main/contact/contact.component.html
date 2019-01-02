@@ -1,16 +1,13 @@
 <div cdkDragBoundary=".desktop" cdkDrag class="contact-form">
 <app-terminal-header cdkDragHandle [closeFunction]="close" titleText="Email Client - Contact"></app-terminal-header>
-  <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
-      <input type = "text" class = "fortextbox" name="to" placeholder='To: Lawson Taylor <lawson.taylor@protonmail.com>' readonly
-      formControlName = "emailid">
-      <input type = "text" class="fortextbox" name="from" placeholder="From: " 
-      formControlName = "emailid">
-     <input type = "text" class="fortextbox" name="subject" placeholder="Subject:" 
-        formControlName = "emailid">
+  <form [formGroup]="formdata">
+      <input type = "text" class = "fortextbox" name="to" placeholder='To: Lawson Taylor <lawson.taylor@protonmail.com>' readonly>
+      <input type = "text" [value]="from" (input)='setFrom($event)' class="fortextbox" name="from" placeholder="From: ">
+     <input type = "text" [value]="subject" (input)='setSubject($event)' class="fortextbox" name="subject" placeholder="Subject:">
      <br/>
-     <textarea rows=20 class="contact-textarea" name = "passwd" 
-        placeholder = "Write your message here...." formControlName = "passwd"></textarea>
-     <br/>
-      <button class='send-mail-button'><div class='mail-button-content'><span class='send-mail-text'>SEND MAIL</span><img class='send-mail-image' src='../../../assets/icons/mail-send.png'/></div></button>
+     <textarea [value]="body" (input)="setBody($event)" rows=20 class="contact-textarea" name = "passwd" placeholder = "Write your message here...."></textarea>
+     <p class="errorMessage" *ngIf="errorMessage">{{errorMessage}}</p>
+     <p class="successMessage" *ngIf="successMessage">{{successMessage}}</p>
+      <button (click)="sendMail()" class='send-mail-button'><div class='mail-button-content'><span class='send-mail-text'>SEND MAIL</span><img class='send-mail-image' src='../../../assets/icons/mail-send.png'/></div></button>
   </form>
 </div>
