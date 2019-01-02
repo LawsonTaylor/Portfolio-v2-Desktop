@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LauncherService } from '../../shared/launcher.service';
 
+const contactUrl = 'http://localhost:3000/api-v1/mail/contact';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -42,7 +44,7 @@ export class ContactComponent implements OnInit {
     }
   }
   onClickSubmit(data) {
-  this.emailid = data.emailid;
+    this.emailid = data.emailid;
   }
 
   close() {
@@ -61,7 +63,7 @@ export class ContactComponent implements OnInit {
   }
 
   validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return !re.test(email);
   }
 
@@ -85,7 +87,35 @@ export class ContactComponent implements OnInit {
   sendMail() {
     if (this.validateInputs()) {
 
-      this.successMessage = 'Email Sent!';
+      const data = {
+        from: this.from,
+        message: this.body,
+        subject: this.subject,
+      };
+
+      console.log(data);
+
+      const body = JSON.stringify(data);
+
+      fetch(contactUrl, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body,
+      })
+        .then(response => {
+          this.successMessage = 'Email Sent!';
+          return response.json();
+        })
+        .then(response => console.log(response))
+        .catch(err => {
+          this.errorMessage = err;
+          this.successMessage = '';
+        });
     }
   }
 

@@ -198,7 +198,7 @@ export class TerminalComponent implements OnInit {
           }
       }
 
-      this.terminal_.nativeElement.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
+      this.cmdLine_.nativeElement.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
       this.value = ''; // Clear/setup line for next input.
     }
   }
