@@ -87,6 +87,23 @@ export class TerminalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.startInfo();
+  }
+
+  startInfo() {
+    const info = ['i', 'n', 'f', 'o'];
+    let i = 0;
+    const timer = setInterval(() => {
+      this.cmdLine_.nativeElement.value += info[i];
+      i++;
+      console.log(i);
+      if (i === 4) {
+        const result = 'lawson';
+        this.output(INFO);
+        this.cmdLine_.nativeElement.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
+        clearTimeout(timer);
+      }
+    }, 500);
   }
 
   close() {
