@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700');
+@import '../../shared/styles/mixins';
+// Small tablets and large smartphones (landscape view)
 
 .desktop {
   width: 100vw;
@@ -12,6 +14,13 @@
   top: 20vh;
   position: absolute;
   max-width: 600px;
+
+  @include xs {
+    max-width: 374px;
+    min-width: 374px;
+    top: 8vh;
+    left: calc(50% - 200px);
+  }
 }
 
 .terminal {

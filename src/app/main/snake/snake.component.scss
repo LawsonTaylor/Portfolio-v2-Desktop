@@ -1,3 +1,5 @@
+@import '../../shared/styles/mixins';
+
 .snake-game {
   width: 480px;
   height: 370px;
@@ -8,6 +10,11 @@
   left: 20%;
   z-index: 200;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+  @include xs {
+    top: 100px;
+    left: -60px;
+  }
 }
 
 #xanvas {
@@ -20,9 +27,29 @@
   margin-top: 6px;
   font: 14px 'IBM Plex Mono', monospace;
   top: 100px;
+  width: 300px;
+  text-align: center;
   margin: auto;
   position: absolute;
-  left: calc(50% - 125px);
+  left: calc(50% - 150px);
+}
+
+.desktop-warning {
+  margin: 0px;
+  margin-top: 0px;
+  margin-top: 6px;
+  font: 14px 'IBM Plex Mono', monospace;
+  top: 240px;
+  width: 260px;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  left: calc(50% - 130px);
+  display: none;
+
+  @include xs {
+    display: inline;
+  }
 }
 
 .menu {
@@ -53,6 +80,7 @@ canvas {
   color: #fff;
   font-size: 24px;
   left: calc(50% - 50px);
+  font-family: ubuntu;
 }
 
 // button
