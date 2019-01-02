@@ -16,15 +16,15 @@
   
   .userText {
     position: absolute;
-    right: calc((100% / 2) - 50px);
+    right: calc((100% / 2) - 110px);
     color: var(--main-txt-color);
     padding-top: 10px;
     font-style: oblique;
     font-family: ubuntu;
-    width: 100px;
+    width: 220px;
     text-align: center;
   }
-  
+
   .btnBar {
     display: flex;
     position: absolute;

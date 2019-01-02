@@ -1,5 +1,5 @@
 <div cdkDragBoundary=".desktop" cdkDrag class="terminal-container" (click)='onClickTerminal()'>
-  <app-terminal-header cdkDragHandle [closeFunction]="close"></app-terminal-header>
+  <app-terminal-header cdkDragHandle [closeFunction]="close" titleText='guest@lawsonOS'></app-terminal-header>
   <div #terminal class="terminal">
     <div #outputContainer id="container"> </div>
     <div id="input-line" class="input-line">
